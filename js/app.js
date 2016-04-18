@@ -22,17 +22,17 @@ var pikePlace = {
       var actualHour = this.hoursOfOperation[0] + hour;
       var newLiEl = document.createElement('li');
       if(actualHour < 12){
-        newLiEl.textContent = actualHour + 'am: ' + hourlyData[0][hour];
+        newLiEl.textContent = actualHour + 'am: ' + hourlyData[0][hour] + ' cookies';
       }else if(actualHour === 12){
-        newLiEl.textContent = actualHour + 'pm: ' + hourlyData[0][hour];
+        newLiEl.textContent = actualHour + 'pm: ' + hourlyData[0][hour] + ' cookies';
       }else {
-        newLiEl.textContent = (actualHour - 12) + 'pm: ' + hourlyData[0][hour];
+        newLiEl.textContent = (actualHour - 12) + 'pm: ' + hourlyData[0][hour] + ' cookies';
       }
       dataList.appendChild(newLiEl);
     }
 
     var dailyCookieTotalLiEl = document.createElement('li');
-    dailyCookieTotalLiEl.textContent = 'Total cookies sold today: ' + hourlyData[1];
+    dailyCookieTotalLiEl.textContent = 'Total: ' + hourlyData[1] + ' cookies';
     dataList.appendChild(dailyCookieTotalLiEl);
 
     storeEl.appendChild(dataList);
@@ -81,17 +81,17 @@ var seaTac = {
       var actualHour = this.hoursOfOperation[0] + hour;
       var newLiEl = document.createElement('li');
       if(actualHour < 12){
-        newLiEl.textContent = actualHour + 'am: ' + hourlyData[0][hour];
+        newLiEl.textContent = actualHour + 'am: ' + hourlyData[0][hour] + ' cookies';
       }else if(actualHour === 12){
-        newLiEl.textContent = actualHour + 'pm: ' + hourlyData[0][hour];
+        newLiEl.textContent = actualHour + 'pm: ' + hourlyData[0][hour] + ' cookies';
       }else {
-        newLiEl.textContent = (actualHour - 12) + 'pm: ' + hourlyData[0][hour];
+        newLiEl.textContent = (actualHour - 12) + 'pm: ' + hourlyData[0][hour] + ' cookies';
       }
       dataList.appendChild(newLiEl);
     }
 
     var dailyCookieTotalLiEl = document.createElement('li');
-    dailyCookieTotalLiEl.textContent = 'Total cookies sold today: ' + hourlyData[1];
+    dailyCookieTotalLiEl.textContent = 'Total: ' + hourlyData[1] + ' cookies';
     dataList.appendChild(dailyCookieTotalLiEl);
 
     storeEl.appendChild(dataList);
@@ -140,17 +140,17 @@ var southcenter = {
       var actualHour = this.hoursOfOperation[0] + hour;
       var newLiEl = document.createElement('li');
       if(actualHour < 12){
-        newLiEl.textContent = actualHour + 'am: ' + hourlyData[0][hour];
+        newLiEl.textContent = actualHour + 'am: ' + hourlyData[0][hour] + ' cookies';
       }else if(actualHour === 12){
-        newLiEl.textContent = actualHour + 'pm: ' + hourlyData[0][hour];
+        newLiEl.textContent = actualHour + 'pm: ' + hourlyData[0][hour] + ' cookies';
       }else {
-        newLiEl.textContent = (actualHour - 12) + 'pm: ' + hourlyData[0][hour];
+        newLiEl.textContent = (actualHour - 12) + 'pm: ' + hourlyData[0][hour] + ' cookies';
       }
       dataList.appendChild(newLiEl);
     }
 
     var dailyCookieTotalLiEl = document.createElement('li');
-    dailyCookieTotalLiEl.textContent = 'Total cookies sold today: ' + hourlyData[1];
+    dailyCookieTotalLiEl.textContent = 'Total: ' + hourlyData[1] + ' cookies';
     dataList.appendChild(dailyCookieTotalLiEl);
 
     storeEl.appendChild(dataList);
@@ -199,17 +199,17 @@ var bellevueSquare = {
       var actualHour = this.hoursOfOperation[0] + hour;
       var newLiEl = document.createElement('li');
       if(actualHour < 12){
-        newLiEl.textContent = actualHour + 'am: ' + hourlyData[0][hour];
+        newLiEl.textContent = actualHour + 'am: ' + hourlyData[0][hour] + ' cookies';
       }else if(actualHour === 12){
-        newLiEl.textContent = actualHour + 'pm: ' + hourlyData[0][hour];
+        newLiEl.textContent = actualHour + 'pm: ' + hourlyData[0][hour] + ' cookies';
       }else {
-        newLiEl.textContent = (actualHour - 12) + 'pm: ' + hourlyData[0][hour];
+        newLiEl.textContent = (actualHour - 12) + 'pm: ' + hourlyData[0][hour] + ' cookies';
       }
       dataList.appendChild(newLiEl);
     }
 
     var dailyCookieTotalLiEl = document.createElement('li');
-    dailyCookieTotalLiEl.textContent = 'Total cookies sold today: ' + hourlyData[1];
+    dailyCookieTotalLiEl.textContent = 'Total: ' + hourlyData[1] + ' cookies';
     dataList.appendChild(dailyCookieTotalLiEl);
 
     storeEl.appendChild(dataList);
@@ -258,17 +258,17 @@ var alki = {
       var actualHour = this.hoursOfOperation[0] + hour;
       var newLiEl = document.createElement('li');
       if(actualHour < 12){
-        newLiEl.textContent = actualHour + 'am: ' + hourlyData[0][hour];
+        newLiEl.textContent = actualHour + 'am: ' + hourlyData[0][hour] + ' cookies';
       }else if(actualHour === 12){
-        newLiEl.textContent = actualHour + 'pm: ' + hourlyData[0][hour];
+        newLiEl.textContent = actualHour + 'pm: ' + hourlyData[0][hour] + ' cookies';
       }else {
-        newLiEl.textContent = (actualHour - 12) + 'pm: ' + hourlyData[0][hour];
+        newLiEl.textContent = (actualHour - 12) + 'pm: ' + hourlyData[0][hour] + ' cookies';
       }
       dataList.appendChild(newLiEl);
     }
 
     var dailyCookieTotalLiEl = document.createElement('li');
-    dailyCookieTotalLiEl.textContent = 'Total cookies sold today: ' + hourlyData[1];
+    dailyCookieTotalLiEl.textContent = 'Total: ' + hourlyData[1] + ' cookies';
     dataList.appendChild(dailyCookieTotalLiEl);
 
     storeEl.appendChild(dataList);
