@@ -1,0 +1,48 @@
+* {
+  background-color: #FF8C69;
+  font-family: Times;
+}
+
+h1, h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #224a77;
+}
+
+article {
+    background-color: #F1F1D4;
+    padding-left: 10px;
+    border-style: ridge;
+    border-color: black;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+article > p {
+  text-indent: 1.5em;
+}
+
+ul {
+  list-style: url('../imgs/salmon_bullet.png');
+  color: salmon;
+}
+
+section {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+li {
+  font-family: Arial;
+}
+
+p {
+  color: black;
+}
+
+p, ul, li, h1, h2, heading {
+  background-color: inherit;
+}
+
+#logo {
+  text-align: center;
+}
