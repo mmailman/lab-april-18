@@ -1,5 +1,6 @@
 //Day 6, 7 lab-april-18
 
+var storeArray = [];
 //Object constructor
 function Store(locationName, minCustomer, maxCustomer, avgCookiesPerSale, hoursOfOperation){
   this.locationName = locationName;
@@ -57,6 +58,7 @@ function Store(locationName, minCustomer, maxCustomer, avgCookiesPerSale, hoursO
     console.log('Total Cookies Sold: ' + totalSales);
     return [salesArray, totalSales];
   };
+  storeArray.push(this);
 }
 
 // Code calls
@@ -65,7 +67,6 @@ var seaTac = new Store('SeaTac Airport', 6, 24, 1.2, [6, 20]);
 var southcenter = new Store('Southcenter', 11, 38, 1.9, [6, 20]);
 var bellevueSquare = new Store('Bellevue Square', 20, 48, 3.3, [6, 20]);
 var alki = new Store('Alki', 3, 24, 2.6, [6, 20]);
-var storeArray = [pikePlace, seaTac, southcenter, bellevueSquare, alki];
 
 for(var store = 0; store < storeArray.length; store++){
   storeArray[store].render();
