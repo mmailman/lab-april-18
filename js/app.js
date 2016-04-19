@@ -12,32 +12,57 @@ function Store(locationName, minCustomer, maxCustomer, avgCookiesPerSale, hoursO
   this.render = function(){
     //function to display to the DOM
     var storeEl = document.getElementById('stores');
-
+    var tableEl = document.createElement('table');
+    var tableHeaderEl = document.createElement('thead');
+    var tableBodyEl = document.createElement('tbody');
+    var trHeaderEl = document.createElement('tr');
     var locationH2El = document.createElement('h2');
     locationH2El.textContent = this.locationName;
     storeEl.appendChild(locationH2El);
+    tableHeaderEl.appendChild(trHeaderEl);
+    tableEl.appendChild(tableHeaderEl);
 
-    var dataList = document.createElement('ul');
     var hourlyData = this.calcDailyTotal();
-
-    for (var hour = 0; hour < hourlyData[0].length; hour ++){
-      var actualHour = this.hoursOfOperation[0] + hour;
-      var newLiEl = document.createElement('li');
-      if(actualHour < 12){
-        newLiEl.textContent = actualHour + 'am: ' + hourlyData[0][hour] + ' cookies';
-      }else if(actualHour === 12){
-        newLiEl.textContent = actualHour + 'pm: ' + hourlyData[0][hour] + ' cookies';
+    var hourHeaderRow = document.createElement('tr');
+    var timeLabel = document.createElement('td');
+    timeLabel.textContent = 'Time:';
+    hourHeaderRow.appendChild(timeLabel);
+    for (var i = 0; i < hourlyData[0].length; i ++) {
+      var hourHeader = this.hoursOfOperation[0] + i;
+      var newTdHour = document.createElement('td');
+      if(hourHeader < 12){
+        newTdHour.textContent = hourHeader + 'am';
+      }else if(hourHeader === 12){
+        newTdHour.textContent = hourHeader + 'pm';
       }else {
-        newLiEl.textContent = (actualHour - 12) + 'pm: ' + hourlyData[0][hour] + ' cookies';
+        newTdHour.textContent = (hourHeader - 12) + 'pm';
       }
-      dataList.appendChild(newLiEl);
+      hourHeaderRow.appendChild(newTdHour);
     }
 
-    var dailyCookieTotalLiEl = document.createElement('li');
-    dailyCookieTotalLiEl.textContent = 'Total: ' + hourlyData[1] + ' cookies';
-    dataList.appendChild(dailyCookieTotalLiEl);
+    var totalTd = document.createElement('td');
+    totalTd.textContent = 'Total';
+    hourHeaderRow.appendChild(totalTd);
+    tableBodyEl.appendChild(hourHeaderRow);
 
-    storeEl.appendChild(dataList);
+    var dataList = document.createElement('tr');
+    var cookieLabel = document.createElement('td');
+    cookieLabel.textContent = 'Cookies:';
+    dataList.appendChild(cookieLabel);
+    for (var hour = 0; hour < hourlyData[0].length; hour ++){
+      var newTdEl = document.createElement('td');
+      newTdEl.textContent = hourlyData[0][hour];
+      dataList.appendChild(newTdEl);
+    }
+
+
+    var dailyCookieTotalTdEl = document.createElement('td');
+    dailyCookieTotalTdEl.textContent = hourlyData[1];
+    dataList.appendChild(dailyCookieTotalTdEl);
+
+    tableBodyEl.appendChild(dataList);
+    tableEl.appendChild(tableBodyEl);
+    storeEl.appendChild(tableEl);
   };
   this.calcHourlyCust = function(){
     return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1) + this.minCustomer);
