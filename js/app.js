@@ -1,14 +1,14 @@
-//Day 6 lab-april-18
+//Day 6, 7 lab-april-18
 
 //Object constructor
 function Store(locationName, minCustomer, maxCustomer, avgCookiesPerSale, hoursOfOperation){
-  locationName: locationName,
-  minCustomer: minCustomer,
-  maxCustomer: maxCustomer,
-  avgCookiesPerSale: avgCookiesPerSale,
-  hoursOfOperation: hoursOfOperation, //stored in 24hr format, in an array where the starting time is index 0 and the close time is indext 1.
+  this.locationName = locationName;
+  this.minCustomer = minCustomer;
+  this.maxCustomer = maxCustomer;
+  this.avgCookiesPerSale = avgCookiesPerSale;
+  this.hoursOfOperation = hoursOfOperation; //stored in 24hr format, in an array where the starting time is index 0 and the close time is index 1.
 
-  render: function(){
+  this.render = function(){
     //function to display to the DOM
     var storeEl = document.getElementById('stores');
 
@@ -37,14 +37,14 @@ function Store(locationName, minCustomer, maxCustomer, avgCookiesPerSale, hoursO
     dataList.appendChild(dailyCookieTotalLiEl);
 
     storeEl.appendChild(dataList);
-  },
-  calcHourlyCust: function(){
+  };
+  this.calcHourlyCust = function(){
     return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1) + this.minCustomer);
-  },
-  calcHourlySales: function(){
+  };
+  this.calcHourlySales = function(){
     return Math.floor(this.calcHourlyCust() * this.avgCookiesPerSale); //Returns total cookies sold per hour.
-  },
-  calcDailyTotal: function(){
+  };
+  this.calcDailyTotal = function(){
     var numHoursOpen = this.hoursOfOperation[1] - this.hoursOfOperation[0];
     var salesArray = [];
     var totalSales = 0;
@@ -56,7 +56,7 @@ function Store(locationName, minCustomer, maxCustomer, avgCookiesPerSale, hoursO
     console.log('Sales Array: ' + salesArray);
     console.log('Total Cookies Sold: ' + totalSales);
     return [salesArray, totalSales];
-  }
+  };
 }
 
 // Code calls
