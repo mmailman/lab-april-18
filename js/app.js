@@ -95,6 +95,34 @@ function Store(locationName, minCustomer, maxCustomer, avgCookiesPerSale, hoursO
   storeArray.push(this);
 }
 
+function handleNewStore (event) {
+  event.preventDefault();
+
+  var locationValue = event.target.location.value;
+  var minValue = parseInt(event.target.min.value);
+  var maxValue = parseInt(event.target.max.value);
+  var avgValue = event.target.avg.value;
+  var openingValue = parseInt(event.target.opening.value);
+  var closingValue = parseInt(event.target.closing.value);
+  var operatingHoursArray = [openingValue, closingValue];
+
+  if(!locationValue || !minValue|| !maxValue || !avgValue || !openingValue || !closingValue) {
+    alert('Please fill out all fields.');
+  } else if(closingValue < openingValue || closingValue > 23 || openingValue > 23) {
+    alert('Opening time must be less than closing time, and both should be in military time.');
+  } else {
+    var newStore = new Store(locationValue, minValue, maxValue, avgValue, operatingHoursArray);
+    newStore.render();
+    event.target.location.value = null;
+    event.target.min.value = null;
+    event.target.max.value = null;
+    event.target.avg.value = null;
+    event.target.opening.value = null;
+    event.target.closing.value = null;
+
+  }
+}
+
 // Code calls
 var pikePlace = new Store('Pike Place Market', 17, 88, 5.2, [6, 20]);
 var seaTac = new Store('SeaTac Airport', 6, 24, 1.2, [6, 20]);
@@ -105,3 +133,6 @@ var alki = new Store('Alki', 3, 24, 2.6, [6, 20]);
 for(var store = 0; store < storeArray.length; store++){
   storeArray[store].render();
 }
+
+var storeForm = document.getElementById('store-form');
+storeForm.addEventListener('submit', handleNewStore);
