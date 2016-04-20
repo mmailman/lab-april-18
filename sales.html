@@ -7,6 +7,30 @@
 
   <body>
     <section id="stores">
+      <form id="store-form">
+        <fieldset>
+          <legend>Enter new store data</legend>
+            <label for="location">Location Name: </label>
+            <input name="location" type="text" size="15"/>
+
+            <label for="min">Minimum Customers: </label>
+            <input name="min" type="numbers" size="3"/>
+
+            <label for="max">Maximum Customers: </label>
+            <input name="max" type="numbers" size="3"/>
+
+            <label for="avg">Average cookies per sale: </label>
+            <input name="avg" type="numbers" size="4"/>
+
+            <label for="opening">Opening Time: </label>
+            <input name="opening" type="numbers" size="2" min="0" max="23"/>
+
+            <label for="closing">Closing Time: </label>
+            <input name="closing" type="numbers" size="2" min="0" max="23"/>
+
+            <button type="submit">Submit</button>
+        </fieldset>
+      </form>
     </section>
     <script src="js/app.js" type="text/javascript"></script>
   </body>
