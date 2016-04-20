@@ -106,10 +106,9 @@ function handleNewStore (event) {
   var closingValue = parseInt(event.target.closing.value);
   var operatingHoursArray = [openingValue, closingValue];
 
-  if(!locationValue || !minValue|| !maxValue || !avgValue || !openingValue || !closingValue) {
-    alert('Please fill out all fields.');
-  } else if(closingValue < openingValue || closingValue > 23 || openingValue > 23) {
-    alert('Opening time must be less than closing time, and both should be in military time.');
+  //Null check valdiation moved to the input tags in the html.
+  if(closingValue < openingValue) {
+    alert('Opening time must be less than closing time.');
   } else if(minValue > maxValue) {
     alert('Maximum customers must be greater than minimum customers.');
   } else {
