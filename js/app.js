@@ -8,53 +8,61 @@ function Store(locationName, minCustomer, maxCustomer, avgCookiesPerSale, hoursO
   this.maxCustomer = maxCustomer;
   this.avgCookiesPerSale = avgCookiesPerSale;
   this.hoursOfOperation = hoursOfOperation; //stored in 24hr format, in an array where the starting time is index 0 and the close time is index 1.
+  this.id = this.locationName.replace(/\s/g, '-').toLowerCase();
 
   this.render = function(){
     //function to display to the DOM
+    var hourlyData = this.calcDailyTotal();
     var storeEl = document.getElementById('stores');
-    var tableEl = document.createElement('table');
-    var tableHeaderEl = document.createElement('thead');
-    var tableBodyEl = document.createElement('tbody');
-    var trHeaderEl = document.createElement('tr');
+
+    var storeArticleEl = document.createElement('article');
+    storeArticleEl.id = this.id;
+
+    //Store Location Header
     var locationH2El = document.createElement('h2');
     locationH2El.textContent = this.locationName;
-    storeEl.appendChild(locationH2El);
-    tableHeaderEl.appendChild(trHeaderEl);
-    tableEl.appendChild(tableHeaderEl);
+    storeArticleEl.appendChild(locationH2El);
 
-    var hourlyData = this.calcDailyTotal();
+    //Store Table
+    var tableEl = document.createElement('table');
+    var tableBodyEl = document.createElement('tbody');
+
+    //Table head
+    var tableHeaderEl = document.createElement('thead');
     var hourHeaderRow = document.createElement('tr');
-    var timeLabel = document.createElement('td');
+    var timeLabel = document.createElement('th');
     timeLabel.textContent = 'Time:';
     hourHeaderRow.appendChild(timeLabel);
     for (var i = 0; i < hourlyData[0].length; i ++) {
       var hourHeader = this.hoursOfOperation[0] + i;
-      var newTdHour = document.createElement('td');
+      var newThHour = document.createElement('th');
       if(hourHeader < 12){
-        newTdHour.textContent = hourHeader + 'am';
+        newThHour.textContent = hourHeader + 'am';
       }else if(hourHeader === 12){
-        newTdHour.textContent = hourHeader + 'pm';
+        newThHour.textContent = hourHeader + 'pm';
       }else {
-        newTdHour.textContent = (hourHeader - 12) + 'pm';
+        newThHour.textContent = (hourHeader - 12) + 'pm';
       }
-      hourHeaderRow.appendChild(newTdHour);
+      hourHeaderRow.appendChild(newThHour);
     }
 
-    var totalTd = document.createElement('td');
-    totalTd.textContent = 'Total';
-    hourHeaderRow.appendChild(totalTd);
-    tableBodyEl.appendChild(hourHeaderRow);
+    var totalTh = document.createElement('th');
+    totalTh.textContent = 'Total';
+    hourHeaderRow.appendChild(totalTh);
+    tableHeaderEl.appendChild(hourHeaderRow);
+    tableEl.appendChild(tableHeaderEl);
 
+    //Table body
     var dataList = document.createElement('tr');
-    var cookieLabel = document.createElement('td');
+    var cookieLabel = document.createElement('th');
     cookieLabel.textContent = 'Cookies:';
     dataList.appendChild(cookieLabel);
+
     for (var hour = 0; hour < hourlyData[0].length; hour ++){
       var newTdEl = document.createElement('td');
       newTdEl.textContent = hourlyData[0][hour];
       dataList.appendChild(newTdEl);
     }
-
 
     var dailyCookieTotalTdEl = document.createElement('td');
     dailyCookieTotalTdEl.textContent = hourlyData[1];
@@ -62,7 +70,8 @@ function Store(locationName, minCustomer, maxCustomer, avgCookiesPerSale, hoursO
 
     tableBodyEl.appendChild(dataList);
     tableEl.appendChild(tableBodyEl);
-    storeEl.appendChild(tableEl);
+    storeArticleEl.appendChild(tableEl);
+    storeEl.appendChild(storeArticleEl);
   };
   this.calcHourlyCust = function(){
     return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1) + this.minCustomer);
