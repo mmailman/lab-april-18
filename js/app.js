@@ -101,7 +101,7 @@ function handleNewStore (event) {
   var locationValue = event.target.location.value;
   var minValue = parseInt(event.target.min.value);
   var maxValue = parseInt(event.target.max.value);
-  var avgValue = event.target.avg.value;
+  var avgValue = parseFloat(event.target.avg.value);
   var openingValue = parseInt(event.target.opening.value);
   var closingValue = parseInt(event.target.closing.value);
   var operatingHoursArray = [openingValue, closingValue];
@@ -110,6 +110,8 @@ function handleNewStore (event) {
     alert('Please fill out all fields.');
   } else if(closingValue < openingValue || closingValue > 23 || openingValue > 23) {
     alert('Opening time must be less than closing time, and both should be in military time.');
+  } else if(minValue > maxValue) {
+    alert('Maximum customers must be greater than minimum customers.');
   } else {
     var newStore = new Store(locationValue, minValue, maxValue, avgValue, operatingHoursArray);
     newStore.render();
