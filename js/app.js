@@ -113,6 +113,12 @@ function handleNewStore (event) {
     alert('Maximum customers must be greater than minimum customers.');
   } else {
     var newStore = new Store(locationValue, minValue, maxValue, avgValue, operatingHoursArray);
+    for(var store = 0; store < storeArray.length; store++){
+      if(newStore.id === storeArray[store].id){
+        var oldStoreInfo = document.getElementById(storeArray[store].id);
+        oldStoreInfo.innerHTML = null;
+      }
+    }
     newStore.render();
     event.target.location.value = null;
     event.target.min.value = null;
