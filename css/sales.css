@@ -1,0 +1,18 @@
+nav {
+  position: fixed;
+  border-bottom-style: solid;
+  background-color: white;
+  opacity: 1;
+  padding-left: 30px;
+}
+
+section {
+  padding-top: 30px;
+}
+
+label, legend {
+  display: inline;
+}
+fieldset {
+  padding: 10px;
+  border-width: 1px; }

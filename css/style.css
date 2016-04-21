@@ -1,20 +1,42 @@
 * {
-  background-color: #FF8C69;
   font-family: Times;
+  /*z-index: 1;*/
+}
+
+header {
+  text-align: center;
+  vertical-align: center;
+}
+
+/*main {
+  margin-left: 0%;
+}*/
+
+section {
+  /*margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 30px;*/
+}
+
+section {
+    background-color: #F1F1D4;
+    padding: 10px;
+    border-style: ridge;
+    border-color: black;
+    margin: 30px;
+}
+
+heading {
+  text-align: center;
+}
+
+p, ul, li, h1, h2, heading {
+  background-color: inherit;
 }
 
 h1, h2 {
   font-family: 'Roboto', sans-serif;
   color: #224a77;
-}
-
-article {
-    background-color: #F1F1D4;
-    padding-left: 10px;
-    border-style: ridge;
-    border-color: black;
-    margin-left: 30%;
-    margin-right: 30%;
 }
 
 article > p {
@@ -24,11 +46,7 @@ article > p {
 ul {
   list-style: url('../imgs/salmon_bullet.png');
   color: salmon;
-}
-
-section {
-  margin-left: 20%;
-  margin-right: 20%;
+  padding-left: 50px;
 }
 
 li {
@@ -39,10 +57,23 @@ p {
   color: black;
 }
 
-p, ul, li, h1, h2, heading {
-  background-color: inherit;
+figure.inlineImages {
+  float: left;
 }
 
-#logo {
+figure.standAloneImages {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.split > article {
+  border-style: none;
+}
+
+footer {
   text-align: center;
 }
