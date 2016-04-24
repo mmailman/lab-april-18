@@ -122,11 +122,10 @@ function handleNewStore (event) {
   } else {
     var newStore = new Store(locationValue, minValue, maxValue, avgValue, operatingHoursArray);
     var newStoreFlag = true;
-    for(var store = 0; store < storeArray.length; store++){
+    for(var store = 0; store < (storeArray.length -1); store++){
       if(newStore.id === storeArray[store].id){
         var oldStoreInfo = document.getElementById(storeArray[store].id);
-        var oldTable = oldStoreInfo.getElementsByTagName('table');
-        oldStoreInfo.removeChild(oldTable);
+        oldStoreInfo.removeChild(oldStoreInfo.childNodes[1]);
         oldStoreInfo.appendChild(newStore.renderTable());
         storeArray.splice(store, 1);
         newStoreFlag = false;
