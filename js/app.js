@@ -122,7 +122,7 @@ function handleNewStore (event) {
   } else {
     var newStore = new Store(locationValue, minValue, maxValue, avgValue, operatingHoursArray);
     var newStoreFlag = true;
-    for(var store = 0; store < (storeArray.length -1); store++){
+    for(var store = 0; store < (storeArray.length - 1); store++){
       if(newStore.id === storeArray[store].id){
         var oldStoreInfo = document.getElementById(storeArray[store].id);
         oldStoreInfo.removeChild(oldStoreInfo.childNodes[1]);

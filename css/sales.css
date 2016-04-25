@@ -1,13 +1,28 @@
+body {
+  min-width: 100%;
+  /*min-height: 100%;*/
+}
 nav {
   position: fixed;
   border-bottom-style: solid;
+  border-bottom-width: thin;
   background-color: white;
   opacity: 1;
-  padding-left: 30px;
 }
 
 section {
   padding-top: 30px;
+}
+
+article {
+  border-style: solid;
+  border-width: thin;
+  padding-left: 30px;
+
+}
+
+table {
+  background-color: #F1F1D4;
 }
 
 label, legend {
@@ -18,6 +33,26 @@ fieldset {
   border-width: 1px;
 }
 
+legend {
+  display:block;
+}
+
 form {
-  margin-top: 20px;
+  margin-top: 325px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+img {
+  text-align: center;
+}
+
+.logo {
+  text-align: center;
+}
+
+.links {
+  /*border-top-style: solid;*/
+  /*border-top-width: thin;*/
+  padding-left: 30px;
 }
